@@ -1,0 +1,28 @@
+@import "../assets/scss/variables";
+
+.tile-info {
+    margin-top: 270px;
+    border-collapse: collapse;
+}
+
+.tile-info, .tile-info td {
+    border: 2px solid $black;
+    text-align: center;
+    padding: 3px 10px;
+}
+
+.tile-info td {
+    min-width: 90px;
+}
+
+.stats-pic {
+    position: fixed;
+    margin-top: 140px;
+    margin-left: 90px;
+    transform: scale(2);
+}
+
+.stats-name {
+    font-weight: bold;
+    font-size: 25px;
+}
