@@ -4,7 +4,7 @@ const TYPE = {
     SHOW_INFO: 'SHOW_INFO'
 }
 
-const API_URL = 'http://pokeapi.co/api/v2/pokemon'
+const API_URL = 'https://pokeapi.co/api/v2/pokemon'
 
 const initialState = {
     items: [],
