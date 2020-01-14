@@ -1,4 +1,4 @@
-@import "../assets/scss/variables";
+@import "../../assets/scss/variables";
 
 @mixin type-color($color) {
     background: linear-gradient($color, darken($color, 35%));
@@ -79,7 +79,7 @@
 }
 
 .tile-pic {
-    transform: scale(1.35);
+    transform: scale(1.2);
     cursor: pointer;
 }
 

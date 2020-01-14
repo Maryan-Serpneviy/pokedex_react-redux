@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import Store from '../Store'
+import * as actions from '../../store/actions'
 import Main from './Main'
 
 const mapStateToProps = state => ({
@@ -8,8 +8,9 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-    loadData: id => dispatch(Store.loadItem(id)),
-    showInfo: id => dispatch(Store.showInfo(id))
+    fetchData: id => dispatch(actions.fetchData(id)),
+    loadItem: id => dispatch(actions.loadItem(id)),
+    showInfo: id => dispatch(actions.showInfo(id))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Main)

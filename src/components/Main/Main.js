@@ -1,26 +1,27 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import './Main.scss'
-import Tile from './Tile'
-import Stats from './Stats'
+import Pokemon from '../Pokemon/Pokemon'
+import Stats from '../Stats/Stats'
 
-export default function Main({ loadData, items, showInfo, item }) {
+export default function Main(props) {
+    const { fetchData, loadItem, item, items, showInfo } = props
     const [itemsLoaded, setItemsLoaded] = useState(0)
 
     const ITEMS_PER_LOAD = 12
 
     useEffect(() => {
-        for (let i = 1; i <= ITEMS_PER_LOAD; i++) {
-            loadData(i)
-        }
         setItemsLoaded(ITEMS_PER_LOAD)
+        for (let i = 1; i <= ITEMS_PER_LOAD; i++) {
+            fetchData(i).then(data => loadItem(data))
+        }
     }, [])
 
     const loadMore = () => {
-        for (let i = itemsLoaded + 1; i <= (itemsLoaded + ITEMS_PER_LOAD); i++) {
-            loadData(i)
-        }
         setItemsLoaded(itemsLoaded + ITEMS_PER_LOAD)
+        for (let i = itemsLoaded + 1; i <= (itemsLoaded + ITEMS_PER_LOAD); i++) {
+            fetchData(i).then(data => loadItem(data))
+        }
     }
 
     const loadInfo = event => {
@@ -31,10 +32,11 @@ export default function Main({ loadData, items, showInfo, item }) {
     return (
         <section id="main">
             <main className="tiles-wrapper">
-                {items.length && items.map(item => <Tile
+                {items.length && items.map(item => <Pokemon
                     key={item.id}
                     item={item}
                     loadInfo={loadInfo}
+                    initialRender={itemsLoaded === ITEMS_PER_LOAD}
                 />)}
                 <button onClick={loadMore} className="btn btn-load">Load More</button>
             </main>
@@ -47,7 +49,9 @@ export default function Main({ loadData, items, showInfo, item }) {
 }
 
 Main.propTypes = {
-    loadData: PropTypes.func.isRequired,
+    fetchData: PropTypes.func.isRequired,
+    loadItem: PropTypes.func.isRequired,
     showInfo: PropTypes.func.isRequired,
-    items: PropTypes.array.isRequired
+    items: PropTypes.array.isRequired,
+    item: PropTypes.object
 }

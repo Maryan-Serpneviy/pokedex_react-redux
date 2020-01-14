@@ -1,9 +1,15 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
-import './Tile.scss'
+import './Pokemon.scss'
 
-export default function Tile({ item, loadInfo }) {
+export default function Pokemon({ item, loadInfo, initialRender }) {
     const { id, name, sprites, types } = item
+
+    useEffect(() => {
+        if (!initialRender) {
+            window.scrollTo(0, document.body.scrollHeight)
+        }
+    }, [])
 
     return (
         <div className="tile">
@@ -27,7 +33,8 @@ export default function Tile({ item, loadInfo }) {
     )
 }
 
-Tile.propTypes = {
+Pokemon.propTypes = {
     item: PropTypes.object.isRequired,
-    loadInfo: PropTypes.func.isRequired
+    loadInfo: PropTypes.func.isRequired,
+    initialRender: PropTypes.bool.isRequired
 }

@@ -3,11 +3,11 @@ import './App.scss'
 import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
-import Store from './Store'
-import MainContainer from './components/MainContainer'
+import { reducer } from './store/reducers'
+import MainContainer from './components/Main/MainContainer'
 
 const store = createStore(
-    Store.reducer,
+    reducer,
     applyMiddleware(thunk)
 )
 
