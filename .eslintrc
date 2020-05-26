@@ -1,25 +1,37 @@
 {
-    "parser": "babel-eslint",
-	"extends": "eslint:recommended",
+	"extends": [
+		"eslint:recommended",
+		"plugin:react/recommended"
+	],
 	"env": {
-		"browser": true,
-		"es6": true
+		"browser": true
 	},
+	"parser": "@typescript-eslint/parser",
+	"parserOptions": {
+		"ecmaVersion": 6,
+		"ecmaFeatures": {
+			"modules": true
+		},
+		"sourceType": "module"
+	},
+	"plugins": [
+		"@typescript-eslint/eslint-plugin",
+		"react-hooks"
+	],
 	"rules": {
 		"accessor-pairs": "error",
 		"array-bracket-spacing": ["error", "never"],
-		"array-callback-return": "error",
 		"arrow-spacing": ["error", { "before": true, "after": true }],
 		"block-spacing": "error",
-		"brace-style": "error",
+		"brace-style": "warn",
 		"comma-dangle": ["error", "never"],
 		"comma-spacing": ["error", { "before": false, "after": true }],
 		"comma-style": ["error", "last"],
-		"constructor-super": "error",
-		"curly": "error",
+		"constructor-super": "warn",
+		"curly": "warn",
 		"default-case": "warn",
 		"eol-last": ["error", "always"],
-		"eqeqeq": ["warn", "always"],
+		"eqeqeq": ["off", "always"],
 		"dot-location": ["error", "property"],
 		"func-call-spacing": ["error", "never"],
 		"guard-for-in": "warn",
@@ -30,7 +42,7 @@
 		"keyword-spacing": ["error", { "before": true }],
 		"max-len": ["error", 150, 2, {
 			"ignoreUrls": true,
-			"ignoreComments": false,
+			"ignoreComments": true,
 			"ignoreRegExpLiterals": true,
 			"ignoreStrings": true,
 			"ignoreTemplateLiterals": true
@@ -40,14 +52,15 @@
 			"newIsCap": true,
 			"newIsCapExceptions": [],
 			"capIsNew": false,
-			"capIsNewExceptions": ["Immutable.Map", "Immutable.Set", "Immutable.List"],
+			"capIsNewExceptions": ["Immutable.Map", "Immutable.Set", "Immutable.List"]
 		}],
 		"new-parens": "error",
 		"no-caller": "error",
+		"no-case-declarations": "off",
 		"no-class-assign": "error",
 		"no-compare-neg-zero": "error",
 		"no-cond-assign": "error",
-		"no-console": "warn",
+		"no-console": ["warn", { "allow": ["warn", "error"] }],
 		"no-debugger": "error",
 		"no-delete-var": "error",
 		"no-dupe-args": "error",
@@ -87,24 +100,24 @@
 		"no-return-assign": "error",
 		"no-self-assign": "error",
 		"no-self-compare": "error",
-		"no-shadow": "warn",
+		"no-shadow": "off",
 		"no-shadow-restricted-names": "error",
 		"no-tabs": ["error", { "allowIndentationTabs": true }],
-		"no-this-before-super": "error",
+		"no-this-before-super": "warn",
 		"no-throw-literal": "error",
 		"no-trailing-spaces": ["error", {
 			"skipBlankLines": true,
 			"ignoreComments": true
 		}],
 		"no-useless-call": "error",
-        "no-undef-init": "error",
+		"no-useless-constructor": "off",
+      "no-undef-init": "error",
 		"no-undef":"off",
 		"no-unneeded-ternary": "error",
 		"no-unreachable": "error",
 		"no-unused-vars": ["off", { "vars": "all", "args": "after-used", "ignoreRestSiblings": true }],
 		"no-use-before-define": ["warn", { "functions": false, "classes": true, "variables": true }],
 		"no-useless-computed-key": "error",
-		"no-useless-constructor": "error",
 		"no-var": "error",
 		"no-with": "error",
 		"object-curly-spacing": ["warn", "always"],
@@ -118,8 +131,32 @@
 		"space-infix-ops": ["error", { "int32Hint": false }],
 		"space-unary-ops": "error",
 		"template-curly-spacing": "error",
-		"use-isnan": "error",
+		"use-isnan": "warn",
 		"yield-star-spacing": ["error", "after"],
-		"yoda": "error"
+		"yoda": "error",
+
+		"react/forbid-foreign-prop-types": "error",
+		"react/no-children-prop": "off",
+		"react/no-danger": "error",
+		"react/no-deprecated": "warn",
+		"react/no-did-mount-set-state": "error",
+		"react/no-did-update-set-state": "error",
+		"react/no-multi-comp": "error",
+		"react/no-redundant-should-component-update": "error",
+		"react/no-this-in-sfc": "error",
+		"react/no-typos": "error",
+		"react/no-unsafe": "error",
+		"react/no-unused-prop-types": "error",
+		"react/no-unused-state": "error",
+		"react/jsx-no-target-blank": "warn",
+		"react/no-will-update-set-state": "error",
+		"react/prefer-es6-class": "error",
+		"react/jsx-no-undef": "error",
+		"react/jsx-no-useless-fragment": "error",
+		"react/jsx-pascal-case": "error",
+		"react/jsx-props-no-multi-spaces": "error",
+		"react/jsx-uses-react": "error",
+		"react-hooks/rules-of-hooks": "error",
+    	"react-hooks/exhaustive-deps": "warn"
 	}
 }

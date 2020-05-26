@@ -1,98 +1,98 @@
-@import "../../assets/scss/variables";
+@import "../../assets/scss/utils/variables";
+@import "../../assets/scss/utils/mixins";
 
-@mixin type-color($color) {
-    background: linear-gradient($color, darken($color, 35%));
-    border: 1px solid darken($color, 40%);
-}
-
-#grass, #normal {
-    @include type-color($grass)
+#grass,
+#normal {
+	@include type-color($grass)
 }
 
 #poison {
-    @include type-color($poison)
+	@include type-color($poison)
 }
 
 #fire {
-    @include type-color($fire)
+	@include type-color($fire)
 }
 
 #electric {
-    @include type-color($electric)
+	@include type-color($electric)
 }
 
 #water {
-    @include type-color($water)
+	@include type-color($water)
 }
 
 #ice {
-    @include type-color($ice)
+	@include type-color($ice)
 }
 
 #bug {
-    @include type-color($bug)
+	@include type-color($bug)
 }
 
-#flying, #fairy {
-    @include type-color($flying)
+#flying,
+#fairy {
+	@include type-color($flying)
 }
 
 #ghost {
-    @include type-color($ghost)
+	@include type-color($ghost)
 }
 
-#steel, #psychic {
-    @include type-color($psychic)
+#steel,
+#psychic {
+	@include type-color($psychic)
 }
 
-#ground, #rock {
-    @include type-color($ground)
+#ground,
+#rock {
+	@include type-color($ground)
 }
 
 #fighting {
-    @include type-color($fighting)
+	@include type-color($fighting)
 }
 
 .tile {
-    display: flex;
-    flex-direction: column;
-    border: 2px solid $black;
-    padding: 8px;
-    text-align: center;
-    text-transform: capitalize;
-    font-size: 15px;
-    min-width: 120px;
-    min-height: 150px;
-    margin-bottom: 15px;
-    padding-bottom: 12px;
+	display: flex;
+	flex-direction: column;
+	border: 2px solid $black;
+	padding: 8px;
+	text-align: center;
+	text-transform: capitalize;
+	font-size: 15px;
+	min-width: 120px;
+	min-height: 150px;
+	margin-bottom: 15px;
+	padding-bottom: 12px;
 }
 
 .tile-name {
-    padding-top: 10px;
-    font-weight: bold;
+	padding-top: 10px;
+	font-weight: bold;
 }
 
 .tile-pic-container {
-    border: 1px solid $black;
-    min-width: 100px;
-    min-height: 100px;
+	border: 1px solid $black;
+	min-width: 100px;
+	min-height: 100px;
 }
 
 .tile-pic {
-    transform: scale(1.2);
-    cursor: pointer;
+	transform: scale(1.2);
+	cursor: pointer;
 }
 
 .tile-type-container {
-    display: flex;
-    justify-content: space-between;
+	display: flex;
+	justify-content: space-between;
 }
 
 .tile-type {
-    flex-direction: row;
-    font-size: 13px;
-    font-weight: bold;
-    padding: 3px 8px;
-    border-radius: 4px;
-    cursor: default;
+	flex-direction: row;
+	font-size: 13px;
+	font-weight: bold;
+	padding: 3px 8px;
+	border-radius: 4px;
+	cursor: default;
 }

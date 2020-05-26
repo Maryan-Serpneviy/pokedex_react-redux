@@ -1,0 +1,30 @@
+@import '../../assets/scss/utils/variables';
+
+.stats {
+	margin-top: 250px;
+	border-collapse: collapse;
+	position: fixed;
+}
+
+.stats,
+.stats td {
+	border: 2px solid $black;
+	text-align: center;
+	padding: 3px 10px;
+}
+
+.stats td {
+	min-width: 90px;
+}
+
+.pic {
+	position: fixed;
+	margin-top: 120px;
+	margin-left: 90px;
+	transform: scale(2);
+}
+
+.name {
+	font-weight: bold;
+	font-size: 25px;
+}

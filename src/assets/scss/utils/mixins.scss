@@ -1,0 +1,4 @@
+@mixin type-color($color) {
+  background: linear-gradient($color, darken($color, 35%));
+  border: 1px solid darken($color, 40%);
+}
